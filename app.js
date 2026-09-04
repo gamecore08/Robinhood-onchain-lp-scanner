@@ -45,6 +45,18 @@ function line(label, value) {
   return `<div class="data-line"><span>${label}</span><span title="${value}">${value}</span></div>`;
 }
 
+async function copyWallet(button) {
+  const wallet = button.dataset.wallet;
+  try {
+    await navigator.clipboard.writeText(wallet);
+    button.textContent = 'Copied';
+    setTimeout(() => { button.textContent = 'Copy'; }, 1400);
+  } catch (_) {
+    button.textContent = 'Copy failed';
+    setTimeout(() => { button.textContent = 'Copy'; }, 1400);
+  }
+}
+
 async function findTransfers(provider, manager, tokenId, fromBlock) {
   const latest = await provider.getBlockNumber();
   const tokenTopic = ethers.zeroPadValue(ethers.toBeHex(tokenId), 32);
@@ -76,8 +88,13 @@ function card(data) {
   if (data.error) return `<article class="result-card error-card"><div class="card-top"><span class="token-label">TOKEN #${data.tokenId}</span><span class="status closed">ERROR</span></div><p>${data.error}</p></article>`;
   const status = data.status ? data.status.replace('POSITION_STATUS_', '') : data.liquidity === '0' ? 'CLOSED' : 'OPEN';
   const ownerLabel = data.ownerSource === 'current' ? 'CURRENT OWNER' : data.ownerSource === 'uniswap-indexer' ? 'OWNER FROM UNISWAP INDEXER' : 'LAST HOLDER FROM TRANSFER LOG';
-  return `<article class="result-card"><div class="card-top"><span class="token-label">TOKEN #${data.tokenId}</span><span class="status ${status.toLowerCase()}">${status}</span></div><div class="owner" title="${data.owner}">${short(data.owner)}</div><div class="owner-label">${ownerLabel}</div><div class="data-list">${line('Liquidity', data.liquidity)}${line('Pool currency 0', short(data.currency0))}${line('Pool currency 1', short(data.currency1))}${line('Fee', data.fee)}${line('Last transfer', data.block)}</div></article>`;
+  return `<article class="result-card"><div class="card-top"><span class="token-label">TOKEN #${data.tokenId}</span><span class="status ${status.toLowerCase()}">${status}</span></div><div class="owner-row"><div class="owner" title="${data.owner}">${data.owner}</div><button class="copy-button" type="button" data-wallet="${data.owner}" title="Copy wallet address">Copy</button></div><div class="owner-label">${ownerLabel}</div><div class="data-list">${line('Liquidity', data.liquidity)}${line('Pool currency 0', short(data.currency0))}${line('Pool currency 1', short(data.currency1))}${line('Fee', data.fee)}${line('Last transfer', data.block)}</div></article>`;
 }
+
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.copy-button');
+  if (button) copyWallet(button);
+});
 
 async function scan() {
   const rpc = $('rpcUrl').value.trim();

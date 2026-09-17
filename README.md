@@ -13,7 +13,8 @@
   <a href="#-bahasa-indonesia">🇮🇩 Bahasa Indonesia</a> • 
   <a href="#-english">🇬🇧 English</a> • 
   <a href="#-tampilan-aplikasi--ui-preview">📸 UI Preview</a> • 
-  <a href="#-petunjuk-menambahkan-gambar-di-github--github-image-guide">🖼️ Panduan Gambar GitHub</a>
+  <a href="#-petunjuk-menambahkan-gambar-di-github--github-image-guide">🖼️ Panduan Gambar GitHub</a> • 
+  <a href="#-support--donations">☕ Support & Donations</a>
 </p>
 
 ---
@@ -233,3 +234,19 @@ Jika Anda tidak ingin ukuran repo bertambah karena file gambar binary:
 | `server.js` | Server HTTP lokal & API proxy untuk browser / Local HTTP dev server |
 | `Buka Scanner.bat` | Shortcut Windows 1-klik untuk menjalankan server / 1-click Windows launcher |
 | `README.md` | Dokumentasi lengkap dwi-bahasa / Bilingual documentation |
+
+---
+
+## ☕ Support & Donations
+
+If this project helped your workflow, contributions are always appreciated:
+
+* **EVM**:  
+  `0xFCDD187D32cFaecD8B07638BD6004fA2bF6838C6`
+* **Solana**:  
+  `2zyBHgVYNp5WnKUK25WsdsQbsMzkj8Kzw2wDePWAnGZYS`
+* **Sui**:  
+  `0xfac84087048bf82f4f99c7704ee0cf9b1386c064b8ea845ab6baf65d1153eb09`
+* **Bitcoin**:  
+  `bc1qulgaaddxhl9qz5jcs4wu5tx5j3g9ng3lfd4cl0`
+

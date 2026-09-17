@@ -13,7 +13,6 @@
   <a href="#-bahasa-indonesia">🇮🇩 Bahasa Indonesia</a> • 
   <a href="#-english">🇬🇧 English</a> • 
   <a href="#-tampilan-aplikasi--ui-preview">📸 UI Preview</a> • 
-  <a href="#-petunjuk-menambahkan-gambar-di-github--github-image-guide">🖼️ Panduan Gambar GitHub</a> • 
   <a href="#-support--donations">☕ Support & Donations</a>
 </p>
 
@@ -168,51 +167,7 @@ The app comes with native **bilingual support (Indonesian & English)** with an i
 
 ---
 
-## 🖼️ Petunjuk Menambahkan Gambar di GitHub / GitHub Image Guide
 
-Berikut adalah 2 cara mudah untuk menampilkan gambar / screenshot aplikasi pada repository GitHub Anda:
-
-### Cara 1: Menggunakan Folder `assets/` di Repository (Direkomendasikan)
-
-1. Ambil tangkapan layar (screenshot) aplikasi Anda menggunakan tombol `Win + Shift + S` di Windows.
-2. Simpan gambar tersebut ke dalam folder project:
-   ```text
-   ROBINHOOD NFT TRACKER LP/
-   ├── assets/
-   │   ├── header.png       <-- Banner header utama
-   │   ├── header_en.png    <-- Banner header versi Inggris
-   │   └── local_launch.png <-- Screenshot hasil scan lengkap
-   ├── index.html
-   ├── styles.css
-   ├── app.js
-   └── README.md
-   ```
-3. Tambahkan gambar ke git dan push ke GitHub:
-   ```bash
-   git add assets/
-   git commit -m "docs: add application screenshot preview"
-   git push origin main
-   ```
-4. Di file `README.md`, panggil gambar dengan sintaks Markdown berikut:
-   ```markdown
-   <p align="center">
-     <img src="assets/header.png" alt="Robinhood LP Lens Header Banner" width="100%" />
-   </p>
-   ```
-
----
-
-### Cara 2: Drag & Drop via GitHub Web (Tanpa Memperbesar Ukuran Repo)
-
-Jika Anda tidak ingin ukuran repo bertambah karena file gambar binary:
-1. Buka repository Anda di browser GitHub.
-2. Masuk ke tab **Issues** lalu klik **New Issue** (atau tab **Discussions**).
-3. Seret dan letakkan (**Drag & drop**) gambar screenshot Anda langsung ke dalam kotak penulisan teks.
-4. GitHub akan otomatis mengunggah gambar ke cloud CDN GitHub dan menghasilkan baris URL gambar.
-5. Salin tautan gambar tersebut, lalu paste ke `README.md` Anda.
-6. Tutup tab New Issue tanpa menyimpannya (gambar tetap tersimpan permanen di CDN GitHub).
-
----
 
 ## 🔒 Keamanan & Batasan / Security & Disclaimers
 

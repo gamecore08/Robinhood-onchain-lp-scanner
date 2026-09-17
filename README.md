@@ -1,7 +1,7 @@
 # Robinhood LP Lens
 
 <p align="center">
-  <img src="assets/preview.png" alt="Robinhood LP Lens Preview" width="100%" />
+  <img src="assets/header.png" alt="Robinhood LP Lens Header Banner" width="100%" />
 </p>
 
 <p align="center">
@@ -12,7 +12,21 @@
 <p align="center">
   <a href="#-bahasa-indonesia">🇮🇩 Bahasa Indonesia</a> • 
   <a href="#-english">🇬🇧 English</a> • 
-  <a href="#-petunjuk-menambahkan-gambar-di-github--github-image-guide">🖼️ Petunjuk Gambar GitHub</a>
+  <a href="#-tampilan-aplikasi--ui-preview">📸 UI Preview</a> • 
+  <a href="#-petunjuk-menambahkan-gambar-di-github--github-image-guide">🖼️ Panduan Gambar GitHub</a>
+</p>
+
+---
+
+## 📸 Tampilan Aplikasi / UI Preview
+
+| Bahasa Indonesia (`ID`) | English (`EN`) |
+| :---: | :---: |
+| <img src="assets/header.png" alt="Header Indonesia" width="100%" /> | <img src="assets/header_en.png" alt="Header English" width="100%" /> |
+
+<p align="center">
+  <em>Hasil Scan Lengkap (Full Local Launch View):</em><br>
+  <img src="assets/local_launch.png" alt="Local Launch Full Preview" width="100%" />
 </p>
 
 ---
@@ -21,10 +35,13 @@
 
 ### 📌 Ringkasan
 
-**Robinhood LP Lens** adalah alat pelacak posisi likuiditas (LP NFT) on-chain berbasis browser untuk jaringan Robinhood Chain. Alat ini membaca data langsung dari blockchain melalui RPC untuk mengidentifikasi wallet pemilik posisi, status likuiditas (`OPEN` atau `CLOSED`), pasangan mata uang token, fee tier, dan jejak transfer NFT bahkan saat posisi sudah diburn atau ditutup.
+**Robinhood LP Lens** adalah alat pelacak posisi likuiditas (LP NFT) on-chain berbasis web untuk jaringan Robinhood Chain. Aplikasi ini membaca data langsung dari blockchain melalui RPC untuk mengidentifikasi wallet pemilik posisi, status likuiditas (`OPEN` atau `CLOSED`), pasangan token, fee tier, dan jejak transfer NFT bahkan saat posisi sudah diburn atau ditutup.
+
+Aplikasi ini sudah dilengkapi dengan **fitur bilingual (Bahasa Indonesia & English)** dengan tombol switch `ID / EN` di bar navigasi atas yang dapat dipilih secara instan.
 
 ### ✨ Fitur Utama
 
+- **Dukungan Dwi-Bahasa (Bilingual ID / EN):** Pilihan bahasa instan langsung dari tombol header dan preferensi tersimpan di browser.
 - **Deteksi Pemilik (Owner Discovery):** Menemukan current owner dari satu atau banyak NFT PositionManager secara otomatis.
 - **Status Posisi Real-time:** Membaca status posisi apakah masih aktif (`OPEN`) atau sudah ditarik/diburn (`CLOSED`).
 - **Data Pool Lengkap:** Menampilkan token pair (currency 0 & currency 1), liquidity, dan fee tier langsung dari smart contract.
@@ -58,23 +75,25 @@
 
 ### 📖 Panduan Penggunaan Langkah demi Langkah
 
-1. **Atur RPC & Contract Settings (Opsional):**
+1. **Pilih Bahasa Tampilan:**
+   - Gunakan tombol switch bahasa **`ID / EN`** di pojok kanan atas untuk mengganti bahasa aplikasi secara instan.
+2. **Atur RPC & Contract Settings (Opsional):**
    - Klik tombol **`RPC & contract settings (+)`** untuk membuka panel konfigurasi.
    - Pilih protokol: **Uniswap V4** atau **Uniswap V3**.
    - Default RPC Robinhood Chain: `https://rpc.mainnet.chain.robinhood.com`
    - Default PositionManager V4: `0x58daec3116aae6D93017bAAea7749052E8a04fA7` *(Catatan: `0x8366...` adalah PoolManager, bukan PositionManager NFT)*.
-2. **Masukkan Position NFT ID:**
+3. **Masukkan Position NFT ID:**
    - Masukkan satu atau beberapa ID token NFT pada kotak teks (satu ID per baris atau pisahkan dengan koma).
    - Atau klik tombol **`QUICK INPUT`** (misal `#1446513 USDG/UBIK`) untuk pengujian instan.
-3. **Filter Wallet (Opsional):**
+4. **Filter Wallet (Opsional):**
    - Jika ingin memeriksa apakah ID tersebut milik wallet tertentu, masukkan alamat wallet (`0x...`) pada kolom **Filter wallet**.
    - Kosongkan kolom ini jika ingin menampilkan pemilik asli dari setiap NFT secara otomatis.
-4. **Jalankan Scan:**
+5. **Jalankan Scan:**
    - Klik tombol **`Scan positions ↗`**.
    - Hasil akan muncul pada kartu hasil scan dengan indikator status:
      - 🟢 **OPEN**: Posisi masih aktif dan memiliki pemilik.
      - ⚪ **CLOSED**: Posisi telah diburn/ditutup, scanner akan menampilkan pemilik terakhir (*last holder*).
-5. **Gunakan Fitur "Refresh Deployed":**
+6. **Gunakan Fitur "Refresh Deployed":**
    - Klik tombol **`Refresh deployed ↻`** untuk memindai transaksi mint posisi LP terbaru pada rentang block (`refreshBlocks`).
    - Token ID baru yang ditemukan akan otomatis ditambahkan ke daftar dan langsung dipindai.
 
@@ -86,8 +105,11 @@
 
 **Robinhood LP Lens** is a read-only on-chain liquidity position (LP NFT) scanner built for Robinhood Chain. It communicates directly with blockchain RPC nodes to inspect position owners, liquidity status (`OPEN` or `CLOSED`), currency pairs, fee tiers, and historical transfer logs—even if the position NFT was previously burned or closed.
 
+The app comes with native **bilingual support (Indonesian & English)** with an instant `ID / EN` toggle switch in the top header.
+
 ### ✨ Key Features
 
+- **Bilingual Interface (ID / EN):** One-click language switcher in the header with persistent local preference.
 - **Owner Discovery:** Identifies the current holder of single or multiple PositionManager NFTs automatically.
 - **Real-Time Position Status:** Quickly reveals whether a position is active (`OPEN`) or redeemed/burned (`CLOSED`).
 - **Comprehensive Pool Data:** Displays token pairs (currency 0 & currency 1), liquidity depth, and fee tiers straight from on-chain contracts.
@@ -121,23 +143,25 @@
 
 ### 📖 Step-by-Step User Guide
 
-1. **Configure RPC & Contract Settings (Optional):**
+1. **Select Interface Language:**
+   - Use the **`ID / EN`** switcher at the top right to swap the interface language instantly.
+2. **Configure RPC & Contract Settings (Optional):**
    - Click the **`RPC & contract settings (+)`** expander.
    - Select protocol: **Uniswap V4** or **Uniswap V3**.
    - Default Robinhood Chain RPC: `https://rpc.mainnet.chain.robinhood.com`
    - Default V4 PositionManager: `0x58daec3116aae6D93017bAAea7749052E8a04fA7` *(Note: `0x8366...` is the PoolManager contract, not the NFT PositionManager)*.
-2. **Enter Position NFT IDs:**
+3. **Enter Position NFT IDs:**
    - Input one or more position token IDs into the text area (one per line or separated by commas).
    - Alternatively, click any **`QUICK INPUT`** tag (e.g., `#1446513 USDG/UBIK`) for instant testing.
-3. **Set Wallet Filter (Optional):**
+4. **Set Wallet Filter (Optional):**
    - If you want to check if positions belong to a specific address, enter the address (`0x...`) in the **Filter wallet** input.
    - Leave it empty to automatically discover and display whoever owns each NFT.
-4. **Scan Positions:**
+5. **Scan Positions:**
    - Click **`Scan positions ↗`**.
    - Review each card in the results grid:
      - 🟢 **OPEN**: Active position with confirmed on-chain owner and liquidity.
      - ⚪ **CLOSED**: Burned/closed position; the scanner resolves the last known holder from event logs.
-5. **Discover Newly Deployed Positions:**
+6. **Discover Newly Deployed Positions:**
    - Click **`Refresh deployed ↻`** to search the specified block range for recently minted NFT positions.
    - Newly discovered token IDs will automatically be populated and scanned.
 
@@ -154,7 +178,9 @@ Berikut adalah 2 cara mudah untuk menampilkan gambar / screenshot aplikasi pada 
    ```text
    ROBINHOOD NFT TRACKER LP/
    ├── assets/
-   │   └── preview.png   <-- Letakkan gambar di sini
+   │   ├── header.png       <-- Banner header utama
+   │   ├── header_en.png    <-- Banner header versi Inggris
+   │   └── local_launch.png <-- Screenshot hasil scan lengkap
    ├── index.html
    ├── styles.css
    ├── app.js
@@ -162,18 +188,14 @@ Berikut adalah 2 cara mudah untuk menampilkan gambar / screenshot aplikasi pada 
    ```
 3. Tambahkan gambar ke git dan push ke GitHub:
    ```bash
-   git add assets/preview.png
+   git add assets/
    git commit -m "docs: add application screenshot preview"
    git push origin main
    ```
 4. Di file `README.md`, panggil gambar dengan sintaks Markdown berikut:
    ```markdown
-   ![Robinhood LP Lens Preview](assets/preview.png)
-   ```
-   Atau jika ingin mengatur lebar tampilan (HTML format):
-   ```html
    <p align="center">
-     <img src="assets/preview.png" alt="Robinhood LP Lens Preview" width="100%" />
+     <img src="assets/header.png" alt="Robinhood LP Lens Header Banner" width="100%" />
    </p>
    ```
 
@@ -185,15 +207,9 @@ Jika Anda tidak ingin ukuran repo bertambah karena file gambar binary:
 1. Buka repository Anda di browser GitHub.
 2. Masuk ke tab **Issues** lalu klik **New Issue** (atau tab **Discussions**).
 3. Seret dan letakkan (**Drag & drop**) gambar screenshot Anda langsung ke dalam kotak penulisan teks.
-4. GitHub akan otomatis mengunggah gambar ke cloud CDN GitHub dan menghasilkan baris kode seperti:
-   ```markdown
-   https://github.com/user-attachments/assets/xxxx-xxxx-xxxx
-   ```
-5. Salin tautan gambar tersebut, lalu paste ke `README.md` Anda:
-   ```markdown
-   ![Robinhood LP Lens Preview](https://github.com/user-attachments/assets/xxxx-xxxx-xxxx)
-   ```
-6. Batalkan / tutup tab New Issue tanpa menyimpannya (gambar tetap tersimpan permanen di CDN GitHub).
+4. GitHub akan otomatis mengunggah gambar ke cloud CDN GitHub dan menghasilkan baris URL gambar.
+5. Salin tautan gambar tersebut, lalu paste ke `README.md` Anda.
+6. Tutup tab New Issue tanpa menyimpannya (gambar tetap tersimpan permanen di CDN GitHub).
 
 ---
 
@@ -210,10 +226,10 @@ Jika Anda tidak ingin ukuran repo bertambah karena file gambar binary:
 
 | File / Folder | Fungsi / Description |
 | --- | --- |
-| `assets/` | Folder gambar & aset preview untuk GitHub |
-| `index.html` | Struktur antarmuka scanner web / UI structure |
+| `assets/` | Folder gambar & aset preview banner untuk GitHub / Screenshot assets |
+| `index.html` | Struktur antarmuka scanner web dengan tombol bahasa / UI structure with lang switcher |
 | `styles.css` | Desain tema gelap, font, & styling responsif / Styling & layout |
-| `app.js` | Logika RPC, event filter, & pembacaan smart contract / Core blockchain logic |
+| `app.js` | Logika RPC, event filter, & sistem terjemahan i18n / Core blockchain & i18n logic |
 | `server.js` | Server HTTP lokal & API proxy untuk browser / Local HTTP dev server |
 | `Buka Scanner.bat` | Shortcut Windows 1-klik untuk menjalankan server / 1-click Windows launcher |
 | `README.md` | Dokumentasi lengkap dwi-bahasa / Bilingual documentation |

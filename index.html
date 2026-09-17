@@ -13,47 +13,55 @@
   <main class="shell">
     <header class="topbar">
       <div class="brand"><span class="brand-mark">◈</span><span>RH / LP SCANNER</span></div>
-      <div class="network-pill"><span class="pulse"></span><span id="networkName">Robinhood Chain</span></div>
+      <div class="topbar-actions">
+        <div class="lang-switch" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn active" id="langId" data-lang="id" title="Bahasa Indonesia">ID</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" id="langEn" data-lang="en" title="English">EN</button>
+        </div>
+        <div class="network-pill"><span class="pulse"></span><span id="networkName">Chain 4663</span></div>
+      </div>
     </header>
 
     <section class="intro">
       <div>
-        <p class="kicker">UNISWAP V4 POSITION INTELLIGENCE</p>
-        <h1>Temukan wallet di balik<br><em>setiap posisi LP.</em></h1>
-        <p class="lede">Scan NFT PositionManager Robinhood Chain untuk melihat pemilik, status likuiditas, pool, dan riwayat transfer. Posisi closed tetap dilacak dari event on-chain.</p>
+        <p class="kicker" data-i18n="introKicker">UNISWAP V4 POSITION INTELLIGENCE</p>
+        <h1 data-i18n-html="introTitle">Temukan wallet di balik<br><em>setiap posisi LP.</em></h1>
+        <p class="lede" data-i18n="introLede">Scan NFT PositionManager Robinhood Chain untuk melihat pemilik, status likuiditas, pool, dan riwayat transfer. Posisi closed tetap dilacak dari event on-chain.</p>
       </div>
       <div class="intro-stamp"><span>LIVE</span><strong>ON-CHAIN</strong><small>READ ONLY</small></div>
     </section>
 
     <section class="control-panel">
-      <div class="panel-heading"><span class="step">01</span><div><h2>Masukkan position NFT</h2><p>Satu ID per baris, atau pisahkan dengan koma.</p></div></div>
+      <div class="panel-heading"><span class="step">01</span><div><h2 data-i18n="stepTitle">Masukkan position NFT</h2><p data-i18n="stepDesc">Satu ID per baris, atau pisahkan dengan koma.</p></div></div>
       <textarea id="tokenIds" rows="2" aria-label="NFT position IDs">1446513
 1444768</textarea>
       <div class="control-row">
-        <label class="wallet-field"><span>Filter wallet (opsional)</span><input id="walletFilter" placeholder="0x..." spellcheck="false"></label>
-        <button id="scanButton" class="primary-button"><span>Scan positions</span><span class="button-arrow">↗</span></button>
+        <label class="wallet-field"><span data-i18n="walletFilterLabel">Filter wallet (opsional)</span><input id="walletFilter" placeholder="0x..." spellcheck="false"></label>
+        <div class="action-buttons"><button id="refreshButton" class="secondary-button" type="button"><span data-i18n="refreshButtonText">Refresh deployed</span><span>↻</span></button><button id="scanButton" class="primary-button" type="button"><span data-i18n="scanButtonText">Scan positions</span><span class="button-arrow">↗</span></button></div>
       </div>
-      <div class="quick-row"><span>QUICK INPUT</span><button class="tag" data-token="1446513">#1446513 USDG/UBIK</button><button class="tag" data-token="1444768">#1444768 USDG/UBIK</button></div>
+      <div class="quick-row"><span data-i18n="quickInputLabel">QUICK INPUT</span><button class="tag" data-token="1446513">#1446513 USDG/UBIK</button><button class="tag" data-token="1444768">#1444768 USDG/UBIK</button></div>
     </section>
 
     <section class="settings-panel">
-      <button id="settingsToggle" class="settings-toggle" aria-expanded="false"><span>RPC & contract settings</span><span>+</span></button>
+      <button id="settingsToggle" class="settings-toggle" aria-expanded="false"><span data-i18n="settingsToggleText">RPC & contract settings</span><span>+</span></button>
       <div id="settingsBody" class="settings-body" hidden>
-        <label>Protocol<select id="protocol"><option value="v3">Uniswap V3</option><option value="v4" selected>Uniswap V4</option></select></label>
-        <label>RPC URL<input id="rpcUrl" value="https://rpc.mainnet.chain.robinhood.com" spellcheck="false"></label>
-        <label><span id="managerLabel">V4 PositionManager</span><input id="positionManager" value="0x58daec3116aae6D93017bAAea7749052E8a04fA7" spellcheck="false"></label>
-        <label>Block start <input id="fromBlock" type="number" value="0" min="0"></label>
-        <p class="hint">V4 PositionManager resmi: `0x58da...04fA7`. Alamat `0x8366...0951` adalah V4 PoolManager, bukan NFT PositionManager.</p>
+        <label><span data-i18n="protocolLabel">Protocol</span><select id="protocol"><option value="v3">Uniswap V3</option><option value="v4" selected>Uniswap V4</option></select></label>
+        <label><span data-i18n="rpcLabel">RPC URL</span><input id="rpcUrl" value="https://rpc.mainnet.chain.robinhood.com" spellcheck="false"></label>
+        <label><span id="managerLabel" data-i18n="managerLabel">V4 PositionManager</span><input id="positionManager" value="0x58daec3116aae6D93017bAAea7749052E8a04fA7" spellcheck="false"></label>
+        <label><span data-i18n="blockStartLabel">Block start</span> <input id="fromBlock" type="number" value="0" min="0"></label>
+        <label><span data-i18n="refreshBlocksLabel">Refresh window (blocks)</span> <input id="refreshBlocks" type="number" value="200000" min="1"></label>
+        <p class="hint" data-i18n-html="settingsHint">V4 PositionManager resmi: <code>0x58da...04fA7</code>. Alamat <code>0x8366...0951</code> adalah V4 PoolManager, bukan NFT PositionManager.</p>
       </div>
     </section>
 
     <section class="results-section">
-      <div class="results-header"><div><p class="kicker">SCAN RESULTS</p><h2 id="resultTitle">Belum ada scan</h2></div><div id="scanMeta" class="scan-meta">—</div></div>
+      <div class="results-header"><div><p class="kicker" data-i18n="resultsKicker">SCAN RESULTS</p><h2 id="resultTitle" data-i18n="resultTitle">Belum ada scan</h2></div><div id="scanMeta" class="scan-meta">—</div></div>
       <div id="statusBox" class="status-box" hidden></div>
-      <div id="results" class="results-grid"><div class="empty-state"><div class="empty-icon">⌁</div><strong>Ready when you are</strong><span>Masukkan RPC dan alamat PositionManager untuk mulai.</span></div></div>
+      <div id="results" class="results-grid"><div class="empty-state"><div class="empty-icon">⌁</div><strong data-i18n="emptyStateStrong">Ready when you are</strong><span data-i18n="emptyStateSpan">Masukkan RPC dan alamat PositionManager untuk mulai.</span></div></div>
     </section>
 
-    <footer><span>ROBINHOOD CHAIN × UNISWAP V4</span><span>DATA DIBACA LANGSUNG DARI BLOCKCHAIN</span></footer>
+    <footer><span data-i18n="footerText1">ROBINHOOD CHAIN × UNISWAP V4</span><span data-i18n="footerText2">DATA DIBACA LANGSUNG DARI BLOCKCHAIN</span></footer>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
   <script src="app.js"></script>
